@@ -1,0 +1,60 @@
+
+<!-- 
+	This HTML file will show a google map, and markers on specific locations on the map. 
+	TIdeally we the locations of markers are initiated in the javascriptfile
+-->
+
+<!DOCTYPE html>
+
+<html ng-app="mapApp">
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Markers in AngularJS</title>
+<link rel="stylesheet" href="map.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+
+<!-- 
+	In addition to all angular libraries, we add the google maps library to use 
+	functionalities associated with google maps. 
+-->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+ <script type="text/javascript" src="map4_geo-trails.js"></script>
+</head>
+
+
+<!-- 
+	All the codes to display the map and the markers should be inside the controller
+-->
+
+<body>
+<div ng-controller="MapController">
+    
+<!-- 
+	This is the div element where the map will be displayed. 	The div acts as a container for the map
+	Please note we gave an id for the div elemnent, which is map
+	This div element will be inside the ng-controller because all the logic associated for displaying
+	the map is the javascript file. 
+-->
+ <div id="map"></div>
+ <div id="repeat" ng-repeat="marker in markers"> </div>
+
+ 
+   <input type="text" placeholder="address"  ng-model="address1" />
+   <input type="text" placeholder="address"  ng-model="address2" />
+   <input type="submit" value="Show Markers" ng-click = "search(address1,address2)"/> 
+   <input type="submit" value="Connect Markers" ng-click = "showLine()"/> 
+   
+	
+	   	
+	   	
+	 
+
+
+
+    
+</div>
+</body>
+</html>

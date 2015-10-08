@@ -1,0 +1,83 @@
+
+<!-- 
+	This HTML file will show a google map, and markers on specific locations on the map. 
+	Ideally the locations of markers are initialised in the javascript file
+-->
+
+<!DOCTYPE html>
+
+<html ng-app="mapApp">
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Markers in AngularJS</title>
+<link rel="stylesheet" href="map.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+<!-- 
+	In addition to all the angular libraries, we add the google maps library 
+	to use functionalities associated with google maps. 
+-->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+ <script type="text/javascript" src="map2_markers.js"></script>
+</head>
+
+
+<!-- 
+	All the codes to display the map and the markers should be inside the ng-controller
+-->
+
+<body>
+<div ng-controller="MapController">
+    
+<!-- 
+	This is the div element where the map will be displayed. The div acts as a container for the map
+	Please note we gave an id for the div elemnent, which is map
+	This div element will be inside the ng-controller because all the logic associated for displaying
+	the map will be in the javascript file. 
+-->
+    <div id="map"></div>
+
+
+   <!-- 
+	Now we need to diplay markers corresponding to four locations in the map
+	So markers [] will be an array comprising of many locations, for example [{marker1}, {marker2}, {marker3}, {marker4}]
+	We will use ng-repeat to get each marker from the markers
+	Getting the markers mean it will dispalyed on the map automatically. 
+	Why automatic display - because when the map loads the markers will be loaded, as both are defined in the controller function
+	The controller function is in the JS file. 
+-->
+
+
+
+<div ng-controller="MarkerController">	
+	 <!--<div id="repeat" ng-repeat="marker in markers">-->
+	<button ng-click="display()">Show Markers</button> 
+	
+	 <ng-click="openInfoWindow($event, marker)">
+      <!-- 
+	Please note markers are similar to web links.
+	When we click a marker it must show some information, i.e. name, and geocordinates of the location in this case
+	ng-click should capture the event, i.e. a marker is clicked, and which marker is clicked. 
+	Two things to remember here - type of event (which is click), and which marker is clicked.
+	Then it should do something, i.e. call a function that will show some information for the marker clicked
+	Here we have a function openInfoWindow. This is a function in googleMaps. We do not need to define it. 
+	The function takes two parameters, which we need to define in the java script.
+	$event: this is a parameter which is used to capture an event, i.e. something has been done with the marker. 
+	Ideally we will write a listener function in controller to capture the type of event
+	marker: this parameter tells us which marker has been clicked, so that we can display the information corrsponding to the clicked marker. 
+	When a marker is clicked, the function is executed, i.e. control is passed to the controller in js file
+	The logic associated with the function is executed and we get the desired output
+	The controller has a infoWindow - to display contents, and a listener to listen to the event
+-->
+ 
+        
+		
+     </div>
+	
+</div>
+
+
+</body>
+</html>

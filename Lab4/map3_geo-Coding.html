@@ -1,0 +1,62 @@
+
+<!-- 
+	In this HTML file, there will be a search box, where the  user will input a location.
+	Once the location is input, a marker corresponding to the location will be shown on the map
+	Here we use a technique known as geocoding, i.e. convert a location into map coordinates (latitude and longitude)
+-->
+
+<!DOCTYPE html>
+
+<html ng-app="mapApp">
+
+
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Maps in AngularJS</title>
+<link rel="stylesheet" href="map.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+
+
+<!-- 
+	In addition to all angular libraries, we add the google maps library to use 
+	functionalities associated with google maps. 
+-->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+ <script type="text/javascript" src="map3_geo-Coding.js"></script>
+</head>
+
+
+<!-- 
+	This HTML file will show a google map, and a search box to input a location. 
+	This is the code that should be used to display a google map 
+-->
+
+<body>
+<div ng-controller="MapController">
+
+<!-- 
+	This is the div element where the map will be displayed. 	The div acts as a container for the map
+	Please note we gave an id for the div elemnent, which is map
+	This div element will be inside the ng-controller because all the logic associated for displaying
+	the map is the javascript file. 
+-->
+    <div id="map"></div>
+
+  
+  <!-- 
+	Here we create a text box, where user can input a location
+	The input is stored in ng-model
+ 	Once the user clicks the submit button, a function showLocation is executed
+	The function has a parameter, which is the location inputted by the user
+	The function is defined in the javascript file, and control is transferred to JS file
+
+-->
+
+   <input type="text" placeholder="Address"  ng-model="location" />
+   <input type="submit" value="Search" ng-click = "showLocation(location)"/> 
+	   
+    
+</div>
+</body>
+</html>
